@@ -71,3 +71,21 @@ function addC() {
 
     }
 }
+function initializeCell(cell) {
+    cell.addEventListener("click", selected);
+    cell.classList.add("uncolored");
+    cell.addEventListener("click", e => {
+        coloring = true
+    });
+    cell.addEventListener("click", e => {
+        if (colorSelected) {
+            cell.style.backgroundColor = colorSelected;
+            cell.classList.remove("uncolored");
+        }
+    });
+    cell.addEventListener("click", e => {
+        if (colorSelected) {
+            colorSelected = false;
+        }
+    })
+}
