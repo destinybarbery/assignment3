@@ -89,3 +89,19 @@ function initializeCell(cell) {
         }
     })
 }
+let cells = document.getElementsByTagName("td");
+let cellList = [...cells];
+
+for (let i=0; i < cellList.length; i++) {
+    const cell = cellList[i];
+    initializeCell(cell)
+}
+
+function clearAll() {
+    let allCells = document.querySelectorAll("td");
+    let allCellsList = [...cells];
+    allCellsList.forEach(cell => {
+        cell.style.backgroundColor = 'lightpink';
+        cell.classList.add("uncolored");
+    })
+}
