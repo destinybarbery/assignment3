@@ -114,8 +114,8 @@ function fill() {
     })
 }
 function fillU(){
-    table_d_items = document.querySelectorAll('TD')   
-    table_d_items.forEach(element => {
+    content = document.querySelectorAll('TD')   
+    content.forEach(element => {
         if(element.style.backgroundColor === 'lightpink' || element.style.backgroundColor === '')
         {
             if(colorSelected == "Red")
