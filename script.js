@@ -2,13 +2,13 @@ let numRows = 0;
 let numCols = 0;
 let colorSelected; 
 
-//This function adds a row 
+//Adds a row
 function addR() {
 
     
     let grid = document.getElementById("grid");
     
-    if(numRows == 0 && numCols == 0){ //if we are starting at 0
+    if(numRows == 0 && numCols == 0){
         let newRow = document.createElement("tr")
         let cell = document.createElement("td")
         initializeCell(cell)
@@ -19,7 +19,7 @@ function addR() {
     numCols++;
         
     }
-    else{//when there are cells present 
+    else{
 
         let newRow = document.createElement("tr");
 
@@ -37,10 +37,10 @@ function addR() {
 
 }
 
-//Adds a column
+//Adds a col
 function addC() {
 
-    if(numRows == 0 && numCols == 0){ //if we are starting at 0
+    if(numRows == 0 && numCols == 0){
         let newRow = document.createElement("tr")
         let cell = document.createElement("td")
         initializeCell(cell)
@@ -52,7 +52,7 @@ function addC() {
      numCols++   
     }
 
-    else{ //if we have cells already
+    else{
         let grid = document.getElementById("grid");
         let all = document.querySelectorAll("tr");
         let rowCounter = 0;
@@ -71,6 +71,30 @@ function addC() {
 
     }
 }
+function removeR() {
+    let grid = document.getElementById("grid");
+    grid.deleteRow(numRows-1);
+    numRows--;
+}
+function removeC() {
+    let grid = document.getElementById("grid");
+    let allRows = document.querySelectorAll("tr");
+    let rowCounter = 0;
+
+    for(let i = 0; i < allRows.length; i++) {
+        allRows[rowCounter].removeChild(allRows[rowCounter].lastChild);
+        rowCounter++;  
+    }
+    numCols--;
+
+}
+function selected(){
+    colorSelected = document.getElementById("selectedID").value;
+    console.log(colorSelected); 
+}
+
+
+
 function initializeCell(cell) {
     cell.addEventListener("click", selected);
     cell.classList.add("uncolored");
@@ -89,6 +113,7 @@ function initializeCell(cell) {
         }
     })
 }
+
 let cells = document.getElementsByTagName("td");
 let cellList = [...cells];
 
@@ -114,7 +139,7 @@ function fill() {
     })
 }
 function fillU(){
-    content = document.querySelectorAll('TD')   
+    content = document.querySelectorAll('td')   
     content.forEach(element => {
         if(element.style.backgroundColor === 'lightpink' || element.style.backgroundColor === '')
         {
