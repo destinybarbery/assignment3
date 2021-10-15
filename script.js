@@ -105,3 +105,29 @@ function clearAll() {
         cell.classList.add("uncolored");
     })
 }
+function fill() {
+    let allCells = document.querySelectorAll("td");
+    let allCellsList = [...cells];
+    allCellsList.forEach(cell => {
+        cell.style.backgroundColor = colorSelected;
+        cell.classList.remove("uncolored");
+    })
+}
+function fillU(){
+    table_d_items = document.querySelectorAll('TD')   
+    table_d_items.forEach(element => {
+        if(element.style.backgroundColor === 'lightpink' || element.style.backgroundColor === '')
+        {
+            if(colorSelected == "Red")
+                element.style.backgroundColor = 'Red' ;
+            else if(colorSelected == "Blue")
+                element.style.backgroundColor = 'blue' ;
+            else if(colorSelected == "Yellow")
+                element.style.backgroundColor = 'yellow' ;
+            else if(colorSelected == "Green")
+                element.style.backgroundColor = 'green' ;
+        }
+    });
+}
+
+
